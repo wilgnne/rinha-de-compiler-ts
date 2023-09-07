@@ -1,0 +1,24 @@
+{
+  "name": "rinha-de-compiler-ts",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": "https://github.com/wilgnne/rinha-de-compiler-ts.git",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ."
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^39.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  }
+}
