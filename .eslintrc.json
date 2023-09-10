@@ -5,16 +5,33 @@
   },
   "extends": [
     "standard-with-typescript",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "plugins": [
-    "prettier"
+    "prettier",
+    "@typescript-eslint"
   ],
   "parserOptions": {
+    "parser": "@typescript-eslint/parser",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "rules": {
     "prettier/prettier": "error"
-  }
+  },
+  "ignorePatterns": [
+    "dist/**",
+    "coverage/**"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "__tests__/**/*.spec.ts"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.test.json"
+      }
+    }
+  ]
 }
