@@ -1,3 +1,4 @@
+import { runBinary } from "./binary";
 import { runPrint } from "./print";
 import { type Enviroment, type IFile, type Out, type Term } from "./types";
 
@@ -7,6 +8,8 @@ export function runExpression(
   out: Out,
 ): Term {
   switch (expression.kind) {
+    case "Binary":
+      return runBinary(expression, env, out);
     case "Print":
       return runPrint(expression, env, out);
     case "Bool":
