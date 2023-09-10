@@ -52,8 +52,16 @@ export interface PrintTerm {
   value: Term;
   location: Loc;
 }
+export interface IfTerm {
+  kind: "If";
+  condition: Term;
+  then: Term;
+  otherwise: Term;
+  location: Loc;
+}
 export type Term =
   | ValuableTerm
+  | IfTerm
   | PrintTerm
   | BinaryTerm;
 
