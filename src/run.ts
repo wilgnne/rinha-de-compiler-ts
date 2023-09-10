@@ -1,4 +1,5 @@
 import { runPrint } from "./print";
+import { type Enviroment, type IFile, type Out, type Term } from "./types";
 
 export function runExpression(
   expression: Term,

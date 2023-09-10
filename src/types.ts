@@ -29,9 +29,7 @@ export interface PrintTerm {
   value: Term;
   location: Loc;
 }
-export type Term =
-  | ValuableTerm
-  | PrintTerm
+export type Term = ValuableTerm | PrintTerm;
 
 export interface IFile {
   name: string;
