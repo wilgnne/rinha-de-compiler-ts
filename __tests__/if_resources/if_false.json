@@ -1,0 +1,59 @@
+{
+  "name": "files/hello.rinha",
+  "expression": {
+    "kind": "If",
+    "condition": {
+      "kind": "Bool",
+      "value": false,
+      "location": {
+        "start": 3,
+        "end": 8,
+        "filename": "files/hello.rinha"
+      }
+    },
+    "then": {
+      "kind": "Print",
+      "value": {
+        "kind": "Bool",
+        "value": true,
+        "location": {
+          "start": 22,
+          "end": 26,
+          "filename": "files/hello.rinha"
+        }
+      },
+      "location": {
+        "start": 16,
+        "end": 27,
+        "filename": "files/hello.rinha"
+      }
+    },
+    "otherwise": {
+      "kind": "Print",
+      "value": {
+        "kind": "Bool",
+        "value": false,
+        "location": {
+          "start": 47,
+          "end": 52,
+          "filename": "files/hello.rinha"
+        }
+      },
+      "location": {
+        "start": 41,
+        "end": 53,
+        "filename": "files/hello.rinha"
+      }
+    },
+    "location": {
+      "start": 0,
+      "end": 55,
+      "filename": "files/hello.rinha"
+    }
+  },
+  "location": {
+    "start": 0,
+    "end": 55,
+    "filename": "files/hello.rinha"
+  }
+}
