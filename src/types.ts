@@ -59,11 +59,7 @@ export interface IfTerm {
   otherwise: Term;
   location: Loc;
 }
-export type Term =
-  | ValuableTerm
-  | IfTerm
-  | PrintTerm
-  | BinaryTerm;
+export type Term = ValuableTerm | IfTerm | PrintTerm | BinaryTerm;
 
 export interface IFile {
   name: string;
