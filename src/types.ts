@@ -24,12 +24,38 @@ export interface BoolTerm {
 
 export type ValuableTerm = StrTerm | IntTerm | BoolTerm;
 
+export type BinaryOp =
+  | "Add"
+  | "Sub"
+  | "Mul"
+  | "Div"
+  | "Rem"
+  | "Eq"
+  | "Neq"
+  | "Lt"
+  | "Gt"
+  | "Lte"
+  | "Gte"
+  | "And"
+  | "Or";
+
+export interface BinaryTerm {
+  kind: "Binary";
+  lhs: Term;
+  op: BinaryOp;
+  rhs: Term;
+  location: Loc;
+}
+
 export interface PrintTerm {
   kind: "Print";
   value: Term;
   location: Loc;
 }
-export type Term = ValuableTerm | PrintTerm;
+export type Term =
+  | ValuableTerm
+  | PrintTerm
+  | BinaryTerm;
 
 export interface IFile {
   name: string;
