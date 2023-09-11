@@ -59,6 +59,11 @@ export interface PrintTerm {
   value: Term;
   location: Loc;
 }
+
+export interface ParamTerm {
+  text: string;
+  location: Loc;
+}
 export interface LetTerm {
   kind: "Let";
   name: ParamTerm;
