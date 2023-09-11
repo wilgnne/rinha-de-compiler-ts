@@ -59,6 +59,25 @@ export interface PrintTerm {
   value: Term;
   location: Loc;
 }
+
+export interface ParamTerm {
+  text: string;
+  location: Loc;
+}
+export interface LetTerm {
+  kind: "Let";
+  name: ParamTerm;
+  value: Term;
+  next: Term;
+  location: Loc;
+}
+
+export interface VarTerm {
+  kind: "Var";
+  text: string;
+  location: Loc;
+}
+
 export interface IfTerm {
   kind: "If";
   condition: Term;
@@ -66,7 +85,15 @@ export interface IfTerm {
   otherwise: Term;
   location: Loc;
 }
-export type Term = ValuableTerm | TupleTerm | IfTerm | PrintTerm | BinaryTerm;
+
+export type Term =
+  | ValuableTerm
+  | TupleTerm
+  | LetTerm
+  | VarTerm
+  | IfTerm
+  | PrintTerm
+  | BinaryTerm;
 
 export interface IFile {
   name: string;
