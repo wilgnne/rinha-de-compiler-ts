@@ -1,5 +1,6 @@
 import { runBinary } from "./binary";
 import { runIf } from "./if";
+import { runLet, runVar } from "./let";
 import { runPrint } from "./print";
 import { runTuple } from "./tuple";
 import { type IFile, type Term, type Out, type Enviroment } from "./types";
@@ -16,8 +17,12 @@ export function runExpression(
       return runBinary(expression, env, out);
     case "Print":
       return runPrint(expression, env, out);
+    case "Let":
+      return runLet(expression, env, out);
     case "Tuple":
       return runTuple(expression, env, out);
+    case "Var":
+      return runVar(expression, env);
     case "Bool":
     case "Int":
     case "Str":
