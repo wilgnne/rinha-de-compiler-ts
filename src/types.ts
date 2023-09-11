@@ -22,6 +22,13 @@ export interface BoolTerm {
   location: Loc;
 }
 
+export interface TupleTerm {
+  kind: "Tuple";
+  first: Term;
+  second: Term;
+  location: Loc;
+}
+
 export type ValuableTerm = StrTerm | IntTerm | BoolTerm;
 
 export type BinaryOp =
@@ -59,7 +66,7 @@ export interface IfTerm {
   otherwise: Term;
   location: Loc;
 }
-export type Term = ValuableTerm | IfTerm | PrintTerm | BinaryTerm;
+export type Term = ValuableTerm | TupleTerm | IfTerm | PrintTerm | BinaryTerm;
 
 export interface IFile {
   name: string;

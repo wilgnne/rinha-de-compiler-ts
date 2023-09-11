@@ -9,6 +9,8 @@ import {
 
 function toStr(term: Term): string {
   switch (term.kind) {
+    case "Tuple":
+      return `(${toStr(term.first)}, ${toStr(term.second)})`;
     default:
       return `${(term as ValuableTerm).value}`;
   }
