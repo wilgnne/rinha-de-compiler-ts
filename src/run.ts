@@ -1,7 +1,8 @@
 import { runBinary } from "./binary";
 import { runIf } from "./if";
 import { runPrint } from "./print";
-import { type Enviroment, type IFile, type Out, type Term } from "./types";
+import { runTuple } from "./tuple";
+import { type IFile, type Term, type Out, type Enviroment } from "./types";
 
 export function runExpression(
   expression: Term,
@@ -15,6 +16,8 @@ export function runExpression(
       return runBinary(expression, env, out);
     case "Print":
       return runPrint(expression, env, out);
+    case "Tuple":
+      return runTuple(expression, env, out);
     case "Bool":
     case "Int":
     case "Str":

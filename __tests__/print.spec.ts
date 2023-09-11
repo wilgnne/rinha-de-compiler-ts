@@ -4,6 +4,7 @@ import { type IFile } from "../src/types";
 import { run } from "../src/run";
 import { factoryOut } from "../src/utils";
 
+import tuple from "./print_resources/tuple.json";
 import bool from "./print_resources/bool.json";
 
 describe("Print test suit", () => {
@@ -59,5 +60,13 @@ describe("Print test suit", () => {
     run(file, out);
 
     expect(getStdout()).toStrictEqual([["false"]]);
+  });
+
+  test("print tuple", () => {
+    const file: IFile = tuple as IFile;
+
+    const { getStdout, out } = factoryOut();
+    run(file, out);
+    expect(getStdout()).toStrictEqual([["(1, 2)"]]);
   });
 });
