@@ -64,6 +64,30 @@ export interface ParamTerm {
   text: string;
   location: Loc;
 }
+
+export interface FuncTerm {
+  kind: "Function";
+  parameters: ParamTerm[];
+  value: Term;
+  location: Loc;
+}
+
+export interface ClosureTerm {
+  kind: "Closure";
+  key: string;
+  env: Enviroment;
+  parameters: ParamTerm[];
+  value: Term;
+  location: Loc;
+}
+
+export interface CallTerm {
+  kind: "Call";
+  callee: Term;
+  arguments: Term[];
+  location: Loc;
+}
+
 export interface LetTerm {
   kind: "Let";
   name: ParamTerm;
@@ -87,6 +111,9 @@ export interface IfTerm {
 }
 
 export type Term =
+  | CallTerm
+  | ClosureTerm
+  | FuncTerm
   | ValuableTerm
   | TupleTerm
   | LetTerm
