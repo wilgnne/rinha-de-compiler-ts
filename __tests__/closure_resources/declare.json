@@ -1,0 +1,59 @@
+{
+  "name": "files/hello.rinha",
+  "expression": {
+    "kind": "Let",
+    "name": {
+      "text": "func",
+      "location": {
+        "start": 4,
+        "end": 8,
+        "filename": "files/hello.rinha"
+      }
+    },
+    "value": {
+      "kind": "Function",
+      "parameters": [],
+      "value": {
+        "kind": "Int",
+        "value": 1,
+        "location": {
+          "start": 26,
+          "end": 27,
+          "filename": "files/hello.rinha"
+        }
+      },
+      "location": {
+        "start": 11,
+        "end": 29,
+        "filename": "files/hello.rinha"
+      }
+    },
+    "next": {
+      "kind": "Print",
+      "value": {
+        "kind": "Var",
+        "text": "func",
+        "location": {
+          "start": 38,
+          "end": 42,
+          "filename": "files/hello.rinha"
+        }
+      },
+      "location": {
+        "start": 32,
+        "end": 43,
+        "filename": "files/hello.rinha"
+      }
+    },
+    "location": {
+      "start": 0,
+      "end": 43,
+      "filename": "files/hello.rinha"
+    }
+  },
+  "location": {
+    "start": 0,
+    "end": 43,
+    "filename": "files/hello.rinha"
+  }
+}
