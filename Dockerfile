@@ -2,7 +2,7 @@ FROM node:18 AS builder
 
 WORKDIR /app
 
-COPY * ./
+COPY . ./
 RUN yarn --frozen-lockfile
 RUN yarn build
 
