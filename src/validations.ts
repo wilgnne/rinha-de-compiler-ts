@@ -15,8 +15,25 @@ export function validBoolTerm(a: Term): BoolTerm {
   throw new Error(`Invalid kind: ${a.kind}`);
 }
 
+export function getValue(a: Term): Term | ValuableTerm["value"] {
+  if (
+    a.kind === "Bool" ||
+    a.kind === "Int" ||
+    a.kind === "Str" ||
+    a.kind === "Null"
+  )
+    return a.value;
+  return a;
+}
+
 export function validValuableTerm(a: Term): ValuableTerm {
-  if (a.kind === "Bool" || a.kind === "Int" || a.kind === "Str") return a;
+  if (
+    a.kind === "Bool" ||
+    a.kind === "Int" ||
+    a.kind === "Str" ||
+    a.kind === "Null"
+  )
+    return a;
   throw new Error(`Invalid kind: ${a.kind}`);
 }
 

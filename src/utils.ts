@@ -1,7 +1,11 @@
-export function factoryOut(): {
-  out: (...data: unknown[]) => void;
+import { type Out } from "./types";
+
+export interface IOut {
+  out: Out;
   getStdout: () => unknown[][];
-} {
+}
+
+export function factoryOut(): IOut {
   const stdout: unknown[][] = [];
 
   function out(...data: unknown[]): void {

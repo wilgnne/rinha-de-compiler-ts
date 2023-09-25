@@ -4,10 +4,15 @@ import {
   type BinaryTerm,
   type ValuableTerm,
   type Loc,
-  type Out,
   type Enviroment,
 } from "./types";
-import { validBoolTerm, validIntInt, validValuableTerm } from "./validations";
+import { type IOut } from "./utils";
+import {
+  getValue,
+  validBoolTerm,
+  validIntInt,
+  validValuableTerm,
+} from "./validations";
 
 function factoryLocation(a: Term, b: Term): Loc {
   return {
@@ -68,11 +73,11 @@ function Rem(termA: Term, termB: Term): ValuableTerm {
 }
 
 function Eq(termA: Term, termB: Term): ValuableTerm {
-  const a = validValuableTerm(termA);
-  const b = validValuableTerm(termB);
-  const location = factoryLocation(a, b);
+  const a = getValue(termA);
+  const b = getValue(termB);
+  const location = factoryLocation(termA, termB);
 
-  return { kind: "Bool", value: a.value === b.value, location };
+  return { kind: "Bool", value: a === b, location };
 }
 
 function Neq(termA: Term, termB: Term): ValuableTerm {
@@ -127,11 +132,9 @@ function Or(termA: Term, termB: Term): ValuableTerm {
   return { kind: "Bool", value: a.value || b.value, location };
 }
 
-export function runBinary(
+export function getBinaryFunction(
   expression: BinaryTerm,
-  env: Enviroment,
-  out: Out,
-): ValuableTerm {
+): (a: Term, b: Term) => ValuableTerm {
   const mapper: Record<BinaryTerm["op"], (a: Term, b: Term) => ValuableTerm> = {
     Add,
     Sub,
@@ -152,6 +155,16 @@ export function runBinary(
 
   if (func === undefined)
     throw new Error(`Invalid operation: ${expression.op}`);
+
+  return func;
+}
+
+export function runBinary(
+  expression: BinaryTerm,
+  env: Enviroment,
+  out: IOut,
+): ValuableTerm {
+  const func = getBinaryFunction(expression);
 
   const lhs = runExpression(expression.lhs, env, out);
   const rhs = runExpression(expression.rhs, env, out);

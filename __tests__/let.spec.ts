@@ -15,7 +15,7 @@ describe("let spec suit", () => {
         },
         value: {
           kind: "Int",
-          value: 1,
+          value: BigInt(1),
           location: { start: 8, end: 9, filename: "files/hello.rinha" },
         },
         next: {
@@ -48,7 +48,7 @@ describe("let spec suit", () => {
         },
         value: {
           kind: "Int",
-          value: 1,
+          value: BigInt(1),
           location: { start: 8, end: 9, filename: "files/hello.rinha" },
         },
         next: {
@@ -59,7 +59,7 @@ describe("let spec suit", () => {
           },
           value: {
             kind: "Int",
-            value: 1,
+            value: BigInt(1),
             location: { start: 19, end: 20, filename: "files/hello.rinha" },
           },
           next: {

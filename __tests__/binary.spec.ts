@@ -19,77 +19,77 @@ import or from "./binary_resources/or.json";
 
 describe("binary operations spec suit", () => {
   test("sum", () => {
-    const file = sum as IFile;
+    const file = sum as unknown as IFile;
     const { getStdout, out } = factoryOut();
     run(file, out);
     expect(getStdout()).toStrictEqual([["2"]]);
   });
 
   test("sub", () => {
-    const file = sub as IFile;
+    const file = sub as unknown as IFile;
     const { getStdout, out } = factoryOut();
     run(file, out);
     expect(getStdout()).toStrictEqual([["0"]]);
   });
 
   test("mul", () => {
-    const file = mul as IFile;
+    const file = mul as unknown as IFile;
     const { getStdout, out } = factoryOut();
     run(file, out);
     expect(getStdout()).toStrictEqual([["2"]]);
   });
 
   test("div", () => {
-    const file = div as IFile;
+    const file = div as unknown as IFile;
     const { getStdout, out } = factoryOut();
     run(file, out);
     expect(getStdout()).toStrictEqual([["1"]]);
   });
 
   test("rem", () => {
-    const file = rem as IFile;
+    const file = rem as unknown as IFile;
     const { getStdout, out } = factoryOut();
     run(file, out);
     expect(getStdout()).toStrictEqual([["0"]]);
   });
 
   test("eq", () => {
-    const file = eq as IFile;
+    const file = eq as unknown as IFile;
     const { getStdout, out } = factoryOut();
     run(file, out);
     expect(getStdout()).toStrictEqual([["true"]]);
   });
 
   test("neq", () => {
-    const file = neq as IFile;
+    const file = neq as unknown as IFile;
     const { getStdout, out } = factoryOut();
     run(file, out);
     expect(getStdout()).toStrictEqual([["false"]]);
   });
 
   test("lt", () => {
-    const file = lt as IFile;
+    const file = lt as unknown as IFile;
     const { getStdout, out } = factoryOut();
     run(file, out);
     expect(getStdout()).toStrictEqual([["false"]]);
   });
 
   test("gt", () => {
-    const file = gt as IFile;
+    const file = gt as unknown as IFile;
     const { getStdout, out } = factoryOut();
     run(file, out);
     expect(getStdout()).toStrictEqual([["false"]]);
   });
 
   test("lte", () => {
-    const file = lte as IFile;
+    const file = lte as unknown as IFile;
     const { getStdout, out } = factoryOut();
     run(file, out);
     expect(getStdout()).toStrictEqual([["true"]]);
   });
 
   test("gte", () => {
-    const file = gte as IFile;
+    const file = gte as unknown as IFile;
     const { getStdout, out } = factoryOut();
     run(file, out);
     expect(getStdout()).toStrictEqual([["true"]]);

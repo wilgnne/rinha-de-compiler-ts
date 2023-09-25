@@ -2,12 +2,12 @@ import { runExpression } from "./run";
 import {
   type ValuableTerm,
   type Enviroment,
-  type Out,
   type PrintTerm,
   type Term,
 } from "./types";
+import { type IOut } from "./utils";
 
-function toStr(term: Term): string {
+export function toStr(term: Term): string {
   switch (term.kind) {
     case "Closure":
       return "<#closure>";
@@ -21,11 +21,11 @@ function toStr(term: Term): string {
 export function runPrint(
   printTerm: PrintTerm,
   env: Enviroment,
-  out: Out,
+  out: IOut,
 ): Term {
   const term = runExpression(printTerm.value, env, out);
 
-  out(toStr(term));
+  out.out(toStr(term));
 
   return term;
 }

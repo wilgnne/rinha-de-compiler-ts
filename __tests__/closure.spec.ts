@@ -10,7 +10,7 @@ import fib from "./closure_resources/fib.json";
 
 describe("closure spec suit", () => {
   test("declare closure", () => {
-    const file: IFile = declare as IFile;
+    const file: IFile = declare as unknown as IFile;
 
     const { getStdout, out } = factoryOut();
     run(file, out);
@@ -34,7 +34,7 @@ describe("closure spec suit", () => {
   });
 
   test("run fib", () => {
-    const file: IFile = fib as IFile;
+    const file: IFile = fib as unknown as IFile;
 
     const { getStdout, out } = factoryOut();
     run(file, out);

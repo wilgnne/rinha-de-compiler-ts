@@ -3,11 +3,11 @@ import {
   type Term,
   type Enviroment,
   type LetTerm,
-  type Out,
   type VarTerm,
 } from "./types";
+import { type IOut } from "./utils";
 
-export function runLet(letTerm: LetTerm, env: Enviroment, out: Out): Term {
+export function runLet(letTerm: LetTerm, env: Enviroment, out: IOut): Term {
   const value = runExpression(letTerm.value, env, out);
 
   env.set(letTerm.name.text, value);
