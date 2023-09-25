@@ -4,6 +4,12 @@ export interface Loc {
   filename: string;
 }
 
+export interface NullTerm {
+  kind: "Null";
+  value: null;
+  location: Loc;
+}
+
 export interface StrTerm {
   kind: "Str";
   value: string;
@@ -12,7 +18,7 @@ export interface StrTerm {
 
 export interface IntTerm {
   kind: "Int";
-  value: number;
+  value: bigint;
   location: Loc;
 }
 
@@ -29,7 +35,19 @@ export interface TupleTerm {
   location: Loc;
 }
 
-export type ValuableTerm = StrTerm | IntTerm | BoolTerm;
+export interface FirstTerm {
+  kind: "First";
+  value: Term;
+  location: Loc;
+}
+
+export interface SecondTerm {
+  kind: "Second";
+  value: Term;
+  location: Loc;
+}
+
+export type ValuableTerm = StrTerm | IntTerm | BoolTerm | NullTerm;
 
 export type BinaryOp =
   | "Add"
@@ -81,6 +99,13 @@ export interface ClosureTerm {
   location: Loc;
 }
 
+export interface ClosureReturn {
+  kind: "ClosureReturn";
+  callee: ClosureTerm;
+  args: Array<Omit<Term, "location">>;
+  location: Loc;
+}
+
 export interface CallTerm {
   kind: "Call";
   callee: Term;
@@ -110,21 +135,43 @@ export interface IfTerm {
   location: Loc;
 }
 
-export type Term =
+export interface ResolverFirstTerm {
+  kind: "ResolverFirst";
+  value: Term;
+  location: Loc;
+}
+
+export interface ResolverSecondTerm {
+  kind: "ResolverSecond";
+  first: Term;
+  value: Term;
+  location: Loc;
+}
+
+export type CompilerTerm =
   | CallTerm
-  | ClosureTerm
   | FuncTerm
   | ValuableTerm
   | TupleTerm
+  | FirstTerm
+  | SecondTerm
   | LetTerm
   | VarTerm
   | IfTerm
   | PrintTerm
   | BinaryTerm;
 
+export type ExecutionTerm =
+  | ClosureTerm
+  | ClosureReturn
+  | ResolverFirstTerm
+  | ResolverSecondTerm;
+
+export type Term = CompilerTerm | ExecutionTerm;
+
 export interface IFile {
   name: string;
-  expression: Term;
+  expression: CompilerTerm;
   location: Loc;
 }
 

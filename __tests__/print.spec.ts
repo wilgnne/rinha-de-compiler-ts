@@ -15,7 +15,7 @@ describe("Print test suit", () => {
         kind: "Print",
         value: {
           kind: "Int",
-          value: 1,
+          value: BigInt(1),
           location: { start: 6, end: 7, filename: "files/hello.rinha" },
         },
         location: { start: 0, end: 8, filename: "files/hello.rinha" },
@@ -63,7 +63,7 @@ describe("Print test suit", () => {
   });
 
   test("print tuple", () => {
-    const file: IFile = tuple as IFile;
+    const file = tuple as unknown as IFile;
 
     const { getStdout, out } = factoryOut();
     run(file, out);
